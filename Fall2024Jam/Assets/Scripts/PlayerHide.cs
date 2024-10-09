@@ -21,7 +21,7 @@ public class PlayerHide : MonoBehaviour
         if (other.CompareTag("MainCamera"))
         {
             hideText.SetActive(true);
-            interactable(true;)
+            interactable(true);
         }
     }
 
