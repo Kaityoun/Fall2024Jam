@@ -8,4 +8,5 @@ namespace ScaredyKat.Interactables
     {
         void Interact(); // Method to be implemented by interactable objects
     }
+    
 }
