@@ -1,34 +1,47 @@
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Events;
 
-public class UIManager : MonoBehaviour
-{
-    public static UIManager Instance;  // Singleton instance
-    public Text interactPromptText;    // Reference to the Text UI element
+namespace ScardeyKat.Interactables{
 
-    private void Awake()
+    public class Interactable : MonoBehaviour
     {
-        // Singleton pattern
-        if (Instance == null)
+        Outline outline;
+        public string message;
+        public UnityEvent onInteraction;
+        
+        private void OnTriggerEnter(Collider other)
         {
-            Instance = this;
+            if (other.CompareTag("Player"))
+            {
+                // Show the UI prompt (implement your UI logic here)
+                UIManager.Instance.ShowInteractPrompt(promptMessage);
+            }
         }
-        else
+
+        private void OnTriggerExit(Collider other)
         {
-            Destroy(gameObject);
+            if (other.CompareTag("Player"))
+            {
+                // Hide the UI prompt
+                UIManager.Instance.HideInteractPrompt();
+            }
         }
-    }
 
-    // Show the interaction prompt
-    public void ShowInteractPrompt(string message)
-    {
-        interactPromptText.text = message;
-        interactPromptText.gameObject.SetActive(true);
-    }
+        public void Interact()
+        {
 
-    // Hide the interaction prompt
-    public void HideInteractPrompt()
-    {
-        interactPromptText.gameObject.SetActive(false);
+            // Implement interaction logic
+            Debug.Log($"Interacted with {gameObject.name}");
+        }
+
+        public void DisableOutline(){
+            outline.enabled = false;
+        }
+
+        public void EnableOutline(){
+            outline.enabled = true;
+        }
     }
 }
+
