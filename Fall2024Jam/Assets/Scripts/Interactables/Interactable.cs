@@ -1,6 +1,6 @@
  using System.Collections;
 using System.Collections.Generic;
-sing UnityEngine;
+using UnityEngine;
 using UnityEngine.Events;
 using ScaredyKat.Player;
 
