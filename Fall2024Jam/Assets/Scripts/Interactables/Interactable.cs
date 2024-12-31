@@ -6,7 +6,7 @@ using ScaredyKat.Player;
 
 namespace ScaredyKat.Interactables
 {
-    public class Interactable : MonoBehaviour
+    public class Interactable : MonoBehaviour, IInteractable
     {
         private Outline outline;
         public string message;  // The message to display when interacting
