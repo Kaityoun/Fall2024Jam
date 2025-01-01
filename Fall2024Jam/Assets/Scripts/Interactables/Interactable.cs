@@ -1,4 +1,4 @@
-using System.Collections;
+ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
@@ -6,7 +6,7 @@ using ScaredyKat.Player;
 
 namespace ScaredyKat.Interactables
 {
-    public class Interactable : MonoBehaviour
+    public class Interactable : MonoBehaviour, IInteractable
     {
         private Outline outline;
         public string message;  // The message to display when interacting
@@ -57,7 +57,7 @@ namespace ScaredyKat.Interactables
             }
         }
 
-        public void Interact()
+        public virtual void Interact()
         {
             // Trigger any events bound to the interaction
             onInteraction.Invoke();

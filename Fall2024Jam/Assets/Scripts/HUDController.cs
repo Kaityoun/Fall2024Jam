@@ -18,7 +18,7 @@ namespace ScaredyKat
 
         public void EnableInteractionText(string text)
         {
-            interactionText.text = text + " (E)";
+            interactionText.text = text;
             interactionText.gameObject.SetActive(true);
         }
 

@@ -1,14 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
 using ScaredyKat.Interactables;
 
 namespace ScaredyKat.Player
 {
     public class PlayerInteraction : MonoBehaviour
     {
-        private Interactable currentInteractable;
+        // Change this line to use the interface
+        private IInteractable currentInteractable;
 
         // Instead of OnTriggerEnter/Exit, this will be used when the player presses a key to interact
         private void Update()
@@ -21,8 +21,8 @@ namespace ScaredyKat.Player
             }
         }
 
-        // Optional: A method to set the currentInteractable when the player is in the interactable zone
-        public void SetCurrentInteractable(Interactable interactable)
+        // Update the method to use the interface as the parameter type
+        public void SetCurrentInteractable(IInteractable interactable)
         {
             currentInteractable = interactable;
         }
